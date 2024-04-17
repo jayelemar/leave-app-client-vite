@@ -2,19 +2,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
+import { RegisterSchema } from '@/schema/auth/RegisterSchema';
 // UI
+import TogglePasswordIcon from '../common/TogglePasswordIcon';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-// import { toast } from "react-toastify";
-import { RegisterSchema } from '@/schema/authSchema';
-// import { useNavigate } from "react-router-dom";
+
 type FormData = z.infer<typeof RegisterSchema>;
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  // const navigate = useNavigate();
+  const togglePassword = () => setShowPassword((prev) => !prev);
+  const toggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev);
+
   const form = useForm<FormData>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
@@ -26,15 +27,6 @@ const RegisterForm = () => {
   });
   async function onSubmit(data: FormData) {
     console.log({ data });
-
-    // try {
-    //   // const result = await registerUser(user)
-    //   toast.success("User registered successfully.Please login.")
-    //   navigate("/")
-    // } catch (error) {
-    //   toast.error("Something went wrong.")
-    //   console.log(error);
-    // }
   }
   return (
     <Form {...form}>
@@ -74,17 +66,7 @@ const RegisterForm = () => {
                   </FormItem>
                 )}
               />
-              {showPassword ? (
-                <EyeOff
-                  className="absolute right-2 top-10 cursor-pointer text-gray-300"
-                  onClick={() => setShowPassword(false)}
-                />
-              ) : (
-                <Eye
-                  className="absolute right-2 top-10 cursor-pointer text-gray-300"
-                  onClick={() => setShowPassword(true)}
-                />
-              )}
+              <TogglePasswordIcon initialState={showPassword} onClick={togglePassword} />
             </div>
           </div>
           <div className="basis-1/2">
@@ -122,17 +104,7 @@ const RegisterForm = () => {
                   </FormItem>
                 )}
               />
-              {showConfirmPassword ? (
-                <EyeOff
-                  className="absolute right-2 top-10 cursor-pointer text-gray-300"
-                  onClick={() => setShowConfirmPassword(false)}
-                />
-              ) : (
-                <Eye
-                  className="absolute right-2 top-10 cursor-pointer text-gray-300"
-                  onClick={() => setShowConfirmPassword(true)}
-                />
-              )}
+              <TogglePasswordIcon initialState={showConfirmPassword} onClick={toggleConfirmPassword} />
             </div>
           </div>
         </div>

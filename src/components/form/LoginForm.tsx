@@ -1,21 +1,20 @@
 import { FC, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { LoginSchema } from '@/schema/auth/LoginSchema';
 import { useForm } from 'react-hook-form';
-import { LoginSchema } from '@/schema/authSchema';
 import { Link, useNavigate } from 'react-router-dom';
-
 // UI
-// import { toast } from 'react-toastify';
-import { Eye, EyeOff } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import TogglePasswordIcon from '../common/TogglePasswordIcon';
 
 type FormData = z.infer<typeof LoginSchema>;
 
 const LoginForm: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const togglePassword = () => setShowPassword((prev) => !prev);
   const navigate = useNavigate();
 
   const form = useForm<FormData>({
@@ -28,7 +27,7 @@ const LoginForm: FC = () => {
 
   async function onSubmit(data: FormData) {
     console.log(data);
-    navigate('/');
+    navigate('/dashboard');
   }
 
   return (
@@ -66,17 +65,7 @@ const LoginForm: FC = () => {
               </FormItem>
             )}
           />
-          {showPassword ? (
-            <EyeOff
-              className="absolute right-2 top-10 cursor-pointer text-gray-300"
-              onClick={() => setShowPassword(false)}
-            />
-          ) : (
-            <Eye
-              className="absolute right-2 top-10 cursor-pointer text-gray-300"
-              onClick={() => setShowPassword(true)}
-            />
-          )}
+          <TogglePasswordIcon initialState={showPassword} onClick={togglePassword} />
           <Link
             to="/forgot-password"
             className="absolute right-0 top-2 text-[10px] text-muted-foreground underline underline-offset-2"
