@@ -83,7 +83,7 @@ function App() {
             }
           />
           <Route
-            path="/verify"
+            path="/verify/:verificationToken"
             element={
               <ErrorBoundary fallback={<Error />}>
                 <Suspense fallback={<Loading />}>

@@ -1,55 +1,44 @@
-import { FC } from 'react';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { ForgotPasswordSchema } from '@/schema/auth/ForgotPasswordSchema';
-import { useNavigate } from 'react-router-dom';
-// UI
-
+import { AccessCodeSchema } from '@/schema/auth/AccessCodeSchema';
+//UI
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 import { Button } from '../ui/button';
-import { Input } from '../ui/input';
 
-type FormData = z.infer<typeof ForgotPasswordSchema>;
-
-const ForgotPasswordForm: FC = () => {
-  const navigate = useNavigate();
-
+type FormData = z.infer<typeof AccessCodeSchema>;
+const AccessCodeForm = () => {
   const form = useForm<FormData>({
-    resolver: zodResolver(ForgotPasswordSchema),
+    resolver: zodResolver(AccessCodeSchema),
     defaultValues: {
-      email: '',
+      loginCode: '',
     },
   });
-
   async function onSubmit(data: FormData) {
     console.log(data);
-    navigate('/');
   }
-
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="mb-2 w-3/4 space-y-3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mb-2 w-2/3 space-y-3">
         <FormField
           control={form.control}
-          name="email"
+          name="loginCode"
           render={({ field }) => (
             <FormItem className="relative flex flex-col items-start justify-center">
-              <FormLabel className="relative top-1 mr-10">Email</FormLabel>
+              <FormLabel className="mr-10 mt-2" />
               <FormControl>
                 <Input placeholder="" {...field} autoComplete="off" />
               </FormControl>
-              <FormMessage className="absolute -bottom-5 left-0 text-[8px]" />
+              <FormMessage className="absolute -bottom-4 left-0 text-[8px]" />
             </FormItem>
           )}
         />
-        <div className="h-2" />
         <Button type="submit" className="w-full">
-          Submit
+          Proceed to Login
         </Button>
       </form>
     </Form>
   );
 };
-
-export default ForgotPasswordForm;
+export default AccessCodeForm;
