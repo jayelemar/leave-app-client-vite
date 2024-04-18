@@ -1,5 +1,5 @@
-import React from 'react';
-import Sidebar from '../sidebar/Sidebar';
+import React from 'react'
+import Sidebar from '../sidebar/Sidebar'
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -15,7 +15,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default DashboardLayout;
+export default DashboardLayout

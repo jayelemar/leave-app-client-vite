@@ -1,4 +1,4 @@
-import z from 'zod';
+import z from 'zod'
 
 export const AccessCodeSchema = z.object({
   loginCode: z
@@ -6,4 +6,4 @@ export const AccessCodeSchema = z.object({
       required_error: 'Please 6 digit access code',
     })
     .min(1, 'Please provide access code.'),
-});
+})

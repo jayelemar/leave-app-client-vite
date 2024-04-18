@@ -1,10 +1,10 @@
-import LoginImg from '@/assets/login.svg';
-import LoginForm from '@/components/form/LoginForm';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Link } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
+import LoginImg from '@/assets/login.svg'
+import LoginForm from '@/components/form/auth/LoginForm'
+import { Button } from '@/components/ui/button'
+import { Card, CardHeader } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Link } from 'react-router-dom'
+import { FcGoogle } from 'react-icons/fc'
 
 const Home = () => {
   return (
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

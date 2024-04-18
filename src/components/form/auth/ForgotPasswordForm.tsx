@@ -1,30 +1,30 @@
-import { FC } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { ForgotPasswordSchema } from '@/schema/auth/ForgotPasswordSchema';
-import { useNavigate } from 'react-router-dom';
+import { FC } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { useForm } from 'react-hook-form'
+import { ForgotPasswordSchema } from '@/schema/auth/ForgotPasswordSchema'
+import { useNavigate } from 'react-router-dom'
 // UI
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Button } from '../../ui/button'
+import { Input } from '../../ui/input'
 
-type FormData = z.infer<typeof ForgotPasswordSchema>;
+type FormData = z.infer<typeof ForgotPasswordSchema>
 
 const ForgotPasswordForm: FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const form = useForm<FormData>({
     resolver: zodResolver(ForgotPasswordSchema),
     defaultValues: {
       email: '',
     },
-  });
+  })
 
   async function onSubmit(data: FormData) {
-    console.log(data);
-    navigate('/');
+    console.log(data)
+    navigate('/')
   }
 
   return (
@@ -49,7 +49,7 @@ const ForgotPasswordForm: FC = () => {
         </Button>
       </form>
     </Form>
-  );
-};
+  )
+}
 
-export default ForgotPasswordForm;
+export default ForgotPasswordForm

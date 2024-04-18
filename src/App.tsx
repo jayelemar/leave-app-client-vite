@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Error, Loading } from './components/common';
-import ErrorBoundary from './utils/ErrorBoundary';
-import Layout from './components/common/Layout';
-import DashboardLayout from './components/dashboard/DashboardLayout';
+import { Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { Error, Loading } from './components/common'
+import ErrorBoundary from './utils/ErrorBoundary'
+import Layout from './components/common/Layout'
+import DashboardLayout from './components/dashboard/DashboardLayout'
 import {
   Dashboard,
   ForgotPassword,
@@ -15,7 +15,7 @@ import {
   RequestLeave,
   ResetPassword,
   Verify,
-} from './utils/lazyLoadComponents';
+} from './utils/lazyLoadComponents'
 
 function App() {
   return (
@@ -131,6 +131,6 @@ function App() {
         </Routes>
       </Layout>
     </>
-  );
+  )
 }
-export default App;
+export default App

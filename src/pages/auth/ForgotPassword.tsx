@@ -1,8 +1,8 @@
-import { Card, CardDescription, CardHeader } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Link } from 'react-router-dom';
+import { Card, CardDescription, CardHeader } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Link } from 'react-router-dom'
 
-import ForgotPasswordForm from '@/components/form/ForgotPasswordForm';
+import ForgotPasswordForm from '@/components/form/auth/ForgotPasswordForm'
 
 const ForgetPassword = () => {
   return (
@@ -24,7 +24,7 @@ const ForgetPassword = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ForgetPassword;
+export default ForgetPassword

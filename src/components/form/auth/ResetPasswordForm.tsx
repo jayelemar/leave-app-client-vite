@@ -1,20 +1,20 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import z from 'zod'
 // UI
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { ResetPasswordSchema } from '@/schema/auth/ResetPasswordSchema';
-import TogglePasswordIcon from '../common/TogglePasswordIcon';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { ResetPasswordSchema } from '@/schema/auth/ResetPasswordSchema'
+import TogglePasswordIcon from '../../common/TogglePasswordIcon'
 
-type FormData = z.infer<typeof ResetPasswordSchema>;
+type FormData = z.infer<typeof ResetPasswordSchema>
 const ResetPasswordForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const togglePassword = () => setShowPassword((prev) => !prev);
-  const toggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev);
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const togglePassword = () => setShowPassword((prev) => !prev)
+  const toggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev)
 
   const form = useForm<FormData>({
     resolver: zodResolver(ResetPasswordSchema),
@@ -22,9 +22,9 @@ const ResetPasswordForm = () => {
       password: '',
       confirmPassword: '',
     },
-  });
+  })
   async function onSubmit(data: FormData) {
-    console.log({ data });
+    console.log({ data })
   }
   return (
     <Form {...form}>
@@ -83,6 +83,6 @@ const ResetPasswordForm = () => {
         </Button>
       </form>
     </Form>
-  );
-};
-export default ResetPasswordForm;
+  )
+}
+export default ResetPasswordForm

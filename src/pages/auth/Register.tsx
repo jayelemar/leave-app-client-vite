@@ -1,7 +1,7 @@
-import RegisterForm from '@/components/form/RegisterForm';
-import { Card, CardHeader } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Link } from 'react-router-dom';
+import RegisterForm from '@/components/form/auth/RegisterForm'
+import { Card, CardHeader } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
   return (
@@ -20,6 +20,6 @@ const RegisterPage = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default RegisterPage;
+  )
+}
+export default RegisterPage

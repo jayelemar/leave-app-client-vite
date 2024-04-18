@@ -1,7 +1,7 @@
-import AccessCodeForm from '@/components/form/AccessCodeForm';
-import { Card, CardHeader } from '@/components/ui/card';
-import { Label } from '@radix-ui/react-label';
-import { Link } from 'react-router-dom';
+import AccessCodeForm from '@/components/form/auth/AccessCodeForm'
+import { Card, CardHeader } from '@/components/ui/card'
+import { Label } from '@radix-ui/react-label'
+import { Link } from 'react-router-dom'
 const AccessCodePage = () => {
   return (
     <section className="relative">
@@ -22,6 +22,6 @@ const AccessCodePage = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default AccessCodePage;
+  )
+}
+export default AccessCodePage

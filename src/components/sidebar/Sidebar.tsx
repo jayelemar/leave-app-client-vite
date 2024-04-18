@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import Logo from '../common/Logo';
-import NavLinks from './SidebarLinks';
-import { PowerIcon } from 'lucide-react';
+import { Link } from 'react-router-dom'
+import Logo from '../common/Logo'
+import NavLinks from './SidebarLinks'
+import { PowerIcon } from 'lucide-react'
 
 export default function Sidebar() {
   return (
@@ -26,5 +26,5 @@ export default function Sidebar() {
         </form>
       </div>
     </div>
-  );
+  )
 }

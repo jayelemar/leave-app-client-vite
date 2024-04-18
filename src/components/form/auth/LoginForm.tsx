@@ -1,21 +1,24 @@
-import { FC, useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { LoginSchema } from '@/schema/auth/LoginSchema';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-// UI
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import TogglePasswordIcon from '../common/TogglePasswordIcon';
+import { FC, useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { LoginSchema } from '@/schema/auth/LoginSchema'
+import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { useLoginUser } from '@/hooks/auth/useLoginUser'
 
-type FormData = z.infer<typeof LoginSchema>;
+// UI
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Button } from '../../ui/button'
+import { Input } from '../../ui/input'
+import TogglePasswordIcon from '../../common/TogglePasswordIcon'
+
+type FormData = z.infer<typeof LoginSchema>
 
 const LoginForm: FC = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePassword = () => setShowPassword((prev) => !prev);
-  const navigate = useNavigate();
+  const { data: LoginMutation } = useLoginUser()
+  const [showPassword, setShowPassword] = useState(false)
+  const togglePassword = () => setShowPassword((prev) => !prev)
+  const navigate = useNavigate()
 
   const form = useForm<FormData>({
     resolver: zodResolver(LoginSchema),
@@ -23,11 +26,17 @@ const LoginForm: FC = () => {
       email: '',
       password: '',
     },
-  });
+  })
 
   async function onSubmit(data: FormData) {
-    console.log(data);
-    navigate('/dashboard');
+    // console.log(data);
+    try {
+      await LoginMutation(data)
+      console.log('User is Successfully Registered.')
+      navigate('/dashboard')
+    } catch (error) {
+      console.log('registration failed', error)
+    }
   }
 
   return (
@@ -79,7 +88,7 @@ const LoginForm: FC = () => {
         </Button>
       </form>
     </Form>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardDescription, CardHeader } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button'
+import { Card, CardDescription, CardHeader } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
 
 const VerifyPage = () => {
   return (
@@ -17,7 +17,7 @@ const VerifyPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default VerifyPage;
+export default VerifyPage

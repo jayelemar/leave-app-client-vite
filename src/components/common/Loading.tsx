@@ -12,7 +12,7 @@ const Loading = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading
