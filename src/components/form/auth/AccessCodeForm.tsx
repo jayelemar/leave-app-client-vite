@@ -1,22 +1,22 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { AccessCodeSchema } from '@/schema/auth/AccessCodeSchema';
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { AccessCodeSchema } from '@/schema/auth/AccessCodeSchema'
 //UI
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '../ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Button } from '../../ui/button'
 
-type FormData = z.infer<typeof AccessCodeSchema>;
+type FormData = z.infer<typeof AccessCodeSchema>
 const AccessCodeForm = () => {
   const form = useForm<FormData>({
     resolver: zodResolver(AccessCodeSchema),
     defaultValues: {
       loginCode: '',
     },
-  });
+  })
   async function onSubmit(data: FormData) {
-    console.log(data);
+    console.log(data)
   }
   return (
     <Form {...form}>
@@ -39,6 +39,6 @@ const AccessCodeForm = () => {
         </Button>
       </form>
     </Form>
-  );
-};
-export default AccessCodeForm;
+  )
+}
+export default AccessCodeForm

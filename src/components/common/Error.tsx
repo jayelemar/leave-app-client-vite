@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { Button } from '../ui/button';
+import { Link } from 'react-router-dom'
+import { Button } from '../ui/button'
 
 const Error = () => {
   return (
@@ -16,7 +16,7 @@ const Error = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Error;
+export default Error

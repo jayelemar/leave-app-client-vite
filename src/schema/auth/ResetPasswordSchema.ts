@@ -1,4 +1,4 @@
-import z from 'zod';
+import z from 'zod'
 
 export const ResetPasswordSchema = z
   .object({
@@ -14,4 +14,4 @@ export const ResetPasswordSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     message: "Password and confirm password doesn't match!",
     path: ['confirmPassword'],
-  });
+  })

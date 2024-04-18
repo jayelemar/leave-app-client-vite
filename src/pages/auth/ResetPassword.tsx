@@ -1,7 +1,7 @@
-import ResetPasswordForm from '@/components/form/ResetPasswordForm';
-import { Card, CardDescription, CardHeader } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Link } from 'react-router-dom';
+import ResetPasswordForm from '@/components/form/auth/ResetPasswordForm'
+import { Card, CardDescription, CardHeader } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
   return (
@@ -23,6 +23,6 @@ const RegisterPage = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default RegisterPage;
+  )
+}
+export default RegisterPage

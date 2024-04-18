@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { FC } from 'react'
+import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 
 const NotFound: FC = () => {
   return (
@@ -15,6 +15,6 @@ const NotFound: FC = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default NotFound;
+  )
+}
+export default NotFound

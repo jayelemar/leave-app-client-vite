@@ -1,20 +1,22 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import z from 'zod';
-import { RegisterSchema } from '@/schema/auth/RegisterSchema';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import z from 'zod'
+import { RegisterSchema } from '@/schema/auth/RegisterSchema'
 // UI
-import TogglePasswordIcon from '../common/TogglePasswordIcon';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import TogglePasswordIcon from '../../common/TogglePasswordIcon'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { useRegisterUser } from '@/hooks/auth/useRegisterUser'
 
-type FormData = z.infer<typeof RegisterSchema>;
+type FormData = z.infer<typeof RegisterSchema>
 const RegisterForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const togglePassword = () => setShowPassword((prev) => !prev);
-  const toggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev);
+  const { mutate: RegisterMutation } = useRegisterUser()
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const togglePassword = () => setShowPassword((prev) => !prev)
+  const toggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev)
 
   const form = useForm<FormData>({
     resolver: zodResolver(RegisterSchema),
@@ -24,9 +26,15 @@ const RegisterForm = () => {
       password: '',
       confirmPassword: '',
     },
-  });
+  })
   async function onSubmit(data: FormData) {
-    console.log({ data });
+    // console.log({ data });
+    try {
+      await RegisterMutation(data)
+      console.log('User is Successfully Registered.')
+    } catch (error) {
+      console.log('registration failed', error)
+    }
   }
   return (
     <Form {...form}>
@@ -115,6 +123,6 @@ const RegisterForm = () => {
         </Button>
       </form>
     </Form>
-  );
-};
-export default RegisterForm;
+  )
+}
+export default RegisterForm

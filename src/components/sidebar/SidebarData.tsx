@@ -1,4 +1,4 @@
-import { File, Home, User } from 'lucide-react';
+import { File, Home, User } from 'lucide-react'
 
 // NavData.tsx
 export const links = [
@@ -13,4 +13,4 @@ export const links = [
     icon: File,
   },
   { name: 'Profile', to: '/profile', icon: User },
-];
+]

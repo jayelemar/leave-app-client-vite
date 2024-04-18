@@ -1,4 +1,4 @@
-import Logo from '@/components/common/Logo';
+import Logo from '@/components/common/Logo'
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         spanStyles="text-primary"
       />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

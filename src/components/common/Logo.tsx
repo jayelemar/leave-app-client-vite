@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 interface LogoProps {
-  containerStyles: string;
-  textStyles: string;
-  spanStyles: string;
+  containerStyles: string
+  textStyles: string
+  spanStyles: string
 }
 
 const Logo: FC<LogoProps> = ({ containerStyles, textStyles, spanStyles }) => {
@@ -15,7 +15,7 @@ const Logo: FC<LogoProps> = ({ containerStyles, textStyles, spanStyles }) => {
         </h2>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

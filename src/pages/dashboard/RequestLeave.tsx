@@ -1,5 +1,5 @@
 const RequestLeave = () => {
-  return <div>RequestLeave</div>;
-};
+  return <div>RequestLeave</div>
+}
 
-export default RequestLeave;
+export default RequestLeave
